@@ -1,0 +1,17 @@
+name: Main Branch Trigger
+
+on:
+  push:
+    branches: 
+      - master
+    paths: 
+      - 'src/**'
+      - '.github/workflows/**'
+
+jobs:
+  call-update-translation-workflow:
+    name: Update Translation Wiki Pages
+    uses: ./.github/workflows/update-translation.yml
+  call-build-workflow:
+    name: Build
+    uses: ./.github/workflows/build.yml
